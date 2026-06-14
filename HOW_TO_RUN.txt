@@ -1,0 +1,42 @@
+HOW TO RUN (Mini JavaScript Runtime) — Windows
+
+1) Prerequisites
+- CMake + C++ build tools (MSVC / Visual Studio Build Tools)
+- Node.js installed and available in PATH
+  - Verify: node -v
+
+2) Build the backend (C++ server)
+Open Command Prompt in: C:/Users/DEll/Desktop
+Run:
+
+cd project\backend
+if not exist build mkdir build
+cd build
+cmake ..
+cmake --build . --config Release
+
+Expected output:
+- project\backend\build\mini_js_runtime_backend.exe
+
+3) Start the backend
+cd project\backend\build
+mini_js_runtime_backend.exe
+
+Server listens on:
+- http://localhost:8081/run
+
+4) Run the frontend
+Open in your browser:
+- project\frontend\index.html
+
+Then:
+- Drag & drop a .js file (max 200 KB)
+- Click Run Code
+
+5) Test with provided sample
+Upload:
+- project\sample_test.js
+
+Expected output in the UI:
+- 7 is Odd
+

@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mini JavaScript Runtime</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="brand">
+      <div class="logo">JS</div>
+      <div>
+        <div class="brand-title">Mini JavaScript Runtime</div>
+        <div class="brand-sub">Upload • Preview • Run safely</div>
+      </div>
+    </div>
+    <div class="status-chip" id="serverStatus">API: localhost:8081</div>
+
+  </header>
+
+
+  <main class="layout">
+    <section class="card left">
+      <h2>Upload</h2>
+
+      <div
+        id="dropzone"
+        class="dropzone"
+        tabindex="0"
+        role="button"
+        aria-label="Upload JavaScript file"
+      >
+        <div class="drop-icon">⬆️</div>
+        <div class="drop-title">Drag & drop your <span class="pill">.js</span> file</div>
+        <div class="drop-sub">Or choose a file from your computer</div>
+
+        <input
+          id="fileInput"
+          type="file"
+          accept=".js,application/javascript"
+          hidden
+        />
+
+        <div class="actions-row">
+          <button id="chooseBtn" class="btn secondary" type="button">Choose file</button>
+          <div class="file-hint">Max 200 KB</div>
+        </div>
+      </div>
+
+      <div class="meta">
+        <div class="meta-row">
+          <span class="label">Filename</span>
+          <span class="value" id="filename">—</span>
+        </div>
+        <div class="meta-row">
+          <span class="label">Validation</span>
+          <span class="value" id="validation">Waiting for upload…</span>
+        </div>
+      </div>
+
+      <div class="code-actions">
+        <button id="runBtn" class="btn primary" type="button" disabled>
+          <span class="btn-inner">
+            <span id="runText">Run Code</span>
+            <span id="spinner" class="spinner" aria-hidden="true"></span>
+          </span>
+        </button>
+        <button id="clearBtn" class="btn ghost" type="button">Clear Console</button>
+      </div>
+
+      <div id="uploadNotice" class="notice" aria-live="polite" role="status"></div>
+
+      <h3 class="section-title">Errors</h3>
+      <pre id="errorBox" class="console error" aria-label="Error output"> </pre>
+    </section>
+
+    <section class="card right">
+      <div class="section-header">
+        <h2 class="no-margin">Code Preview</h2>
+        <div class="kbd">Read-only</div>
+      </div>
+
+      <div class="editor">
+        <pre id="codePreview" class="code">// Upload a .js file to preview it here.</pre>
+      </div>
+
+      <h3 class="section-title">Output Console</h3>
+      <pre id="consoleBox" class="console" aria-label="Program output"> </pre>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>Built with a C++ backend runner + Node.js execution engine.</span>
+  </footer>
+
+  <script src="./script.js"></script>
+</body>
+</html>
+
